@@ -33,8 +33,9 @@ class ChatControllerTest extends TestCase
             'title' => $this->faker->unique()->title(),
         ];
 
-        $this->post(route('chat.store'), $chatData);
+        $response = $this->post(route('chat.store'), $chatData);
 
+        $response->assertStatus(201);
         $this->assertDatabaseHas('chats', $chatData);
     }
 
@@ -58,8 +59,9 @@ class ChatControllerTest extends TestCase
     {
         $chat = Chat::factory()->create();
 
-        $this->delete(route('chat.delete', $chat));
+        $response = $this->delete(route('chat.delete', $chat));
 
+        $response->assertStatus(204);
         $this->assertDatabaseMissing('chats', $chat->toArray());
     }
 }
