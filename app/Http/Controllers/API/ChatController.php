@@ -27,7 +27,7 @@ class ChatController extends Controller
         return response()->json($chat, 201);
     }
 
-    public function update(ChatRequest $request, Chat $chat): JsonResponse
+    public function update(Chat $chat, ChatRequest $request ): JsonResponse
     {
         $chat->update($request->all());
 

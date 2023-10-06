@@ -8,8 +8,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('chats', [ChatController::class, 'index']);
-Route::get('chats/{chat}', [ChatController::class, 'show']);
-Route::post('chats', [ChatController::class, 'store']);
-Route::put('chats/{chat}', [ChatController::class, 'update']);
-Route::delete('chats/{chat}', [ChatController::class, 'delete']);
+Route::get('chats', [ChatController::class, 'index'])->name('chat.index');
+Route::get('chats/{chat}', [ChatController::class, 'show'])->name('chat.show');
+Route::post('chats', [ChatController::class, 'store'])->name('chat.store');
+Route::put('chats/{chat}', [ChatController::class, 'update'])->name('chat.update');
+Route::delete('chats/{chat}', [ChatController::class, 'delete'])->name('chat.delete');
