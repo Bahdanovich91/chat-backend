@@ -28,14 +28,14 @@ class MessageController extends Controller
         return $message;
     }
 
-    public function update(MessageRequest $request, $message): JsonResponse
+    public function update(MessageRequest $request, Message $message): JsonResponse
     {
         $message->update($request->all());
 
         return response()->json($message, 200);
     }
 
-    public function destroy($message): JsonResponse
+    public function delete(Message $message): JsonResponse
     {
         $message->delete();
 
