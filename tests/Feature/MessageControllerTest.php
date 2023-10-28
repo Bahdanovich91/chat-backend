@@ -13,7 +13,7 @@ class MessageControllerTest extends TestCase
 
     public function testIndex(): void
     {
-        $response = $this->get(route('message.index'));
+        $response = $this->get(route('message.index', 1));
 
         $response->assertStatus(200);
     }

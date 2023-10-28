@@ -15,7 +15,7 @@ Route::post('chats', [ChatController::class, 'store'])->name('chat.store');
 Route::put('chats/{chat}', [ChatController::class, 'update'])->name('chat.update');
 Route::delete('chats/{chat}', [ChatController::class, 'delete'])->name('chat.delete');
 
-Route::get('messages', [MessageController::class, 'index'])->name('message.index');
+Route::get('messages/{chatId}', [MessageController::class, 'index'])->name('message.index');
 Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');
 Route::post('messages', [MessageController::class, 'store'])->name('message.store');
 Route::put('messages/{message}', [MessageController::class, 'update'])->name('message.update');

@@ -11,9 +11,9 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    public function index(): Collection
+    public function index($chatId): ?Collection
     {
-        return Message::all();
+        return Message::all()->where('chat_id', $chatId) ?? null;
     }
 
     public function store(MessageRequest $request): JsonResponse
